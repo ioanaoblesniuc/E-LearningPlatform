@@ -1,0 +1,6 @@
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\bin\Debug\E-Learning.exe.config
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\bin\Debug\E-Learning.exe
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\bin\Debug\E-Learning.pdb
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\obj\Debug\E-Learning.csprojResolveAssemblyReference.cache
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\obj\Debug\E-Learning.exe
+c:\users\lorena leahu\documents\visual studio 2015\Projects\E-Learning\E-Learning\obj\Debug\E-Learning.pdb

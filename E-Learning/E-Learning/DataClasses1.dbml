@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FacultateaE" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LORENA\SQLEXPRESS;Initial Catalog=FacultateaE;Integrated Security=True" SettingsObjectName="E_Learning.Properties.Settings" SettingsPropertyName="FacultateaEConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Grupe" Member="Grupes">
+    <Type Name="Grupe">
+      <Column Name="ID_grupa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumeGrupa" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NumarStudenti" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupe_Materii" Member="Materii" ThisKey="ID_grupa" OtherKey="ID_materie" Type="Materii" Cardinality="One" />
+      <Association Name="Grupe_Studenti" Member="Studentis" ThisKey="ID_grupa" OtherKey="Grupa" Type="Studenti" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Materii" Member="Materiis">
+    <Type Name="Materii">
+      <Column Name="ID_materie" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_Grup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Denumire" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProfCurs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProfLaborator" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupe_Materii" Member="Grupe" ThisKey="ID_materie" OtherKey="ID_grupa" Type="Grupe" IsForeignKey="true" />
+      <Association Name="Profesori_Materii" Member="Profesori" ThisKey="ProfCurs" OtherKey="ID_prof" Type="Profesori" IsForeignKey="true" />
+      <Association Name="Profesori_Materii1" Member="Profesori1" ThisKey="ProfLaborator" OtherKey="ID_prof" Type="Profesori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profesori" Member="Profesoris">
+    <Type Name="Profesori">
+      <Column Name="ID_prof" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nume" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Prenume" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Profesori_Materii" Member="Materiis" ThisKey="ID_prof" OtherKey="ProfCurs" Type="Materii" />
+      <Association Name="Profesori_Materii1" Member="Materiis1" ThisKey="ID_prof" OtherKey="ProfLaborator" Type="Materii" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Studenti" Member="Studentis">
+    <Type Name="Studenti">
+      <Column Name="ID_stud" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nume" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenume" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Grupa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Grad" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Grupe_Studenti" Member="Grupe" ThisKey="Grupa" OtherKey="ID_grupa" Type="Grupe" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
